@@ -1,16 +1,7 @@
-let loggedInUser;
+let x = 7;
 
-if( !loggedInUser ){
-  console.log('GET OUT OF HERE')
-}
+console.log("X value is ", x==7 || x===3 && x>10 ) // true
+console.log("X value is ", x==7 ||( x===3 && x>10) ) // true
 
 
-let flavor = 'grape';
-
-if( flavor !== 'grape' && flavor !== 'cherry' ){
-  console.log('Dont have that flavor')
-}
-
-if( !(flavor === 'grape' || flavor === 'cherry') ){
-  console.log('Dont have that flavor!')
-}
+console.log("X value is ", (x==7 || x===3) && x>10 ) // false
