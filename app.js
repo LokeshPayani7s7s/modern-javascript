@@ -1,11 +1,16 @@
-let password = "Hell";
+let loggedInUser;
 
-if(password.length >= 6){
-  if(password.indexOf(' ') === -1){
-    console.log('Valid Password!');
-  }else{
-    console.log('Password is long enough, but cannot contain space');
-  }
-}else {
-  console.log('Password must be long!');
+if( !loggedInUser ){
+  console.log('GET OUT OF HERE')
+}
+
+
+let flavor = 'grape';
+
+if( flavor !== 'grape' && flavor !== 'cherry' ){
+  console.log('Dont have that flavor')
+}
+
+if( !(flavor === 'grape' || flavor === 'cherry') ){
+  console.log('Dont have that flavor!')
 }
