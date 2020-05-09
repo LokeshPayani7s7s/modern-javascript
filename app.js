@@ -1,25 +1,16 @@
-let mestry = 0;
+let password = "CheckenGel";
 
-// FALSY VALUES
-
-      // false
-      // 0
-      // ""(empty string)
-      // null
-      // undefined
-      // NaN
-
-if(mestry) {
-  console.log('TRUTHY');
+if(password.length >= 6 && password.indexOf(' ') === -1){
+    console.log('Vaild Password');
 }else {
-  console.log('FALSY');
+    console.log('Invalid Password');
 }
 
 
-let loggedInUser = 'ABC123';
+let num = "6";
 
-if (loggedInUser) {
-  console.log('YOU ARE LOGGED IN');
-} else{
-  console.log("PLEASE LOG IN")
+if( num >= 1 && num <= 10 ){
+    console.log('Number is between 1 and 10');
+}else {
+    console.log('Please guess the number between 1 to 10');
 }
