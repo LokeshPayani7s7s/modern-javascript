@@ -1,11 +1,26 @@
-let password = "Hell";
+let num = 7;
 
-if(password.length >= 6){
-  if(password.indexOf(' ') === -1){
-    console.log('Valid Password!');
-  }else{
-    console.log('Password is long enough, but cannot contain space');
-  }
+
+// IF condition
+if( num === 7) {
+  console.log('LUCKY');
 }else {
-  console.log('Password must be long!');
+  console.log('BAD');
 }
+
+// Ternery Operator
+
+num === 7 ? console.log('LUCKY') : console.log('BAD');
+
+
+let status= 'offline';
+
+// let color;
+// if( status === 'offline') {
+//   color='red'
+// }else {
+//   color='green'
+// }
+
+let color = status === 'online' ? "red" : "green";
+console.log(color);
