@@ -1,16 +1,15 @@
-let password = "CheckenGel";
+let age = 5;
 
-if(password.length >= 6 && password.indexOf(' ') === -1){
-    console.log('Vaild Password');
+if(age < 6 || age >= 65){
+  console.log('YOU GET IN FOR FREE');
 }else {
-    console.log('Invalid Password');
+  console.log('YOU MUST PAY');
 }
 
 
-let num = "6";
 
-if( num >= 1 && num <= 10 ){
-    console.log('Number is between 1 and 10');
-}else {
-    console.log('Please guess the number between 1 to 10');
+let color = 'voilet';
+
+if( color === 'blue' || color === 'voilet' || color ==="red"){
+  console.log('great choice')
 }
