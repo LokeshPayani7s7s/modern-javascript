@@ -1,11 +1,7 @@
-let password = "Hell";
+let x = 7;
 
-if(password.length >= 6){
-  if(password.indexOf(' ') === -1){
-    console.log('Valid Password!');
-  }else{
-    console.log('Password is long enough, but cannot contain space');
-  }
-}else {
-  console.log('Password must be long!');
-}
+console.log("X value is ", x==7 || x===3 && x>10 ) // true
+console.log("X value is ", x==7 ||( x===3 && x>10) ) // true
+
+
+console.log("X value is ", (x==7 || x===3) && x>10 ) // false
