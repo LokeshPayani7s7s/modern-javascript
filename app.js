@@ -1,11 +1,25 @@
-let password = "Hell";
+let mestry = 0;
 
-if(password.length >= 6){
-  if(password.indexOf(' ') === -1){
-    console.log('Valid Password!');
-  }else{
-    console.log('Password is long enough, but cannot contain space');
-  }
+// FALSY VALUES
+
+      // false
+      // 0
+      // ""(empty string)
+      // null
+      // undefined
+      // NaN
+
+if(mestry) {
+  console.log('TRUTHY');
 }else {
-  console.log('Password must be long!');
+  console.log('FALSY');
+}
+
+
+let loggedInUser = 'ABC123';
+
+if (loggedInUser) {
+  console.log('YOU ARE LOGGED IN');
+} else{
+  console.log("PLEASE LOG IN")
 }
