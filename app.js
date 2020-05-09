@@ -1,11 +1,15 @@
-let password = "Hell";
+let age = 5;
 
-if(password.length >= 6){
-  if(password.indexOf(' ') === -1){
-    console.log('Valid Password!');
-  }else{
-    console.log('Password is long enough, but cannot contain space');
-  }
+if(age < 6 || age >= 65){
+  console.log('YOU GET IN FOR FREE');
 }else {
-  console.log('Password must be long!');
+  console.log('YOU MUST PAY');
+}
+
+
+
+let color = 'voilet';
+
+if( color === 'blue' || color === 'voilet' || color ==="red"){
+  console.log('great choice')
 }
