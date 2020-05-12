@@ -1,26 +1,11 @@
-let ingredients = [
-  'water',
-  'corn starch',
-  'flour',
-  'cheese',
-  'brown sugar',
-  'shrimp',
-  'eel',
-  'butter'
-];
 
-//includes finds the value
-console.log(ingredients.includes('fish')) // false
-console.log(ingredients.includes('shrimp')) //true
-console.log(ingredients.includes('water', 3)) // false
-console.log(ingredients.includes('water', 0))// true
+let letters = ['T','C','A','C','G','L','M'];
+console.log(letters.reverse()) // ["M", "L", "G", "C", "A", "C", "T"]
 
-if(ingredients.includes('flour')){
-  console.log('I AM GLUTEN FREE, I CANNOT EAT THAT');
-}
+let numbers = [1,2,3,4,5,6];
+console.log(numbers.reverse()); // [6, 5, 4, 3, 2, 1]
 
-//indexOf()
-console.log(ingredients.indexOf('fish')) // -1 false
-console.log(ingredients.indexOf('shrimp')) // 5 true
-console.log(ingredients.indexOf('water', 3)) // -1 false
-console.log(ingredients.indexOf('water', 0))// 0 true
+console.log(letters.join()) // M,L,G,C,A,C,T
+console.log(letters.join('-')) // M-L-G-C-A-C-T
+console.log(letters.reverse().join('.')) // T.C.A.C.G.L.M
+console.log(letters.join('$'))// T$C$A$C$G$L$M
