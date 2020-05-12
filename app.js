@@ -1,11 +1,8 @@
-let dishesToDo =['big platter','large platter', 'small platter'];
-console.log(dishesToDo);//["big platter", "large platter", "small platter"]
+let fruits = ['apple', 'bannana'];
+let veggies = ['asparagus', 'brussel sprouts'];
+let meet = ['steak', 'chicken breast'];
 
 
-// unshift adds the element at the start
-dishesToDo.unshift('123')
-console.log(dishesToDo);//["123", "big platter", "large platter", "small platter"]
-
-//shift emoves the element at front
-dishesToDo.shift();
-console.log(dishesToDo); //["big platter", "large platter", "small platter"]
+console.log(fruits.concat(veggies));  // ["apple", "bannana", "asparagus", "brussel sprouts"]
+console.log(veggies.concat(fruits));  // ["asparagus", "brussel sprouts", "apple", "bannana"]
+console.log(veggies.concat(fruits, meet)); //  ["asparagus", "brussel sprouts", "apple", "bannana", "steak", "chicken breast"]
