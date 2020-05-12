@@ -1,11 +1,11 @@
-let password = "Hell";
+let dishesToDo =['big platter','large platter', 'small platter'];
+console.log(dishesToDo);//["big platter", "large platter", "small platter"]
 
-if(password.length >= 6){
-  if(password.indexOf(' ') === -1){
-    console.log('Valid Password!');
-  }else{
-    console.log('Password is long enough, but cannot contain space');
-  }
-}else {
-  console.log('Password must be long!');
-}
+
+// unshift adds the element at the start
+dishesToDo.unshift('123')
+console.log(dishesToDo);//["123", "big platter", "large platter", "small platter"]
+
+//shift emoves the element at front
+dishesToDo.shift();
+console.log(dishesToDo); //["big platter", "large platter", "small platter"]
