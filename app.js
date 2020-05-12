@@ -1,18 +1,11 @@
-let topSongs = [
-  'First Time Ever I Saw YOur Face',
-  'God Only Knows',
-  'A Day In The Life',
-  'Life On Mars'
-];
+let dishesToDo =['big platter','large platter', 'small platter'];
+console.log(dishesToDo);//["big platter", "large platter", "small platter"]
 
-// this will add the item at end
-topSongs[topSongs.length]='123'
-console.log(topSongs);
 
-// Will add the item at the end
-topSongs.push('Fortunate Song');
-console.log("Push =>>>>",topSongs);
+// unshift adds the element at the start
+dishesToDo.unshift('123')
+console.log(dishesToDo);//["123", "big platter", "large platter", "small platter"]
 
-// Will remove the item at end
-let result=topSongs.pop();
-console.log(result);
+//shift emoves the element at front
+dishesToDo.shift();
+console.log(dishesToDo); //["big platter", "large platter", "small platter"]
