@@ -1,15 +1,32 @@
-let people = ['Mrs. Robsinson', 'Angie', 'Jolene', 'Maggie May', 'Roxanne'];
-let sortedArray = people.sort();
-console.log("SortedArray",sortedArray); // ["Angie", "Jolene", "Maggie May", "Mrs. Robsinson", "Roxanne"]
+const animalPairs = [
+  ['doe', 'buck'],
+  ['ewe', 'ram'],
+  ['peahen', 'peacock'],
+  ['loki', ['lokesh','payani']]
+]
 
-const months = ['March', 'Jan', 'Feb', 'Dec'];
-months.sort();
-console.log(months);
-// expected output: Array ["Dec", "Feb", "Jan", "March"]
+// to access the array values
 
-const array1 = [1, 30, 4, 21, 100000];
-array1.sort();
-console.log(array1);
-// expected output: Array [1, 100000, 21, 30, 4]
+console.log(animalPairs[0]); // ["doe", "buck"]
+console.log(animalPairs[0][0]);// doe
+console.log(animalPairs[0][1]);// buck
 
 
+console.log(animalPairs[1]); //  ['ewe', 'ram']
+console.log(animalPairs[1][0]); // ewe
+console.log(animalPairs[1][1]); // ram
+
+
+console.log(animalPairs[2]); // ['peahen', 'peacock']
+console.log(animalPairs[2][0]); // peahen
+console.log(animalPairs[2][1]); // peacock
+
+console.log(animalPairs[3]); // ["loki", Array(2)]
+console.log(animalPairs[3][0]); // loki
+console.log(animalPairs[3][1]); // ["lokesh", "payani"]
+
+// to Update
+
+console.log(animalPairs[0]); // ["doe", "buck"]
+console.log(animalPairs[0][0] = 'stag');// stag
+console.log(animalPairs[0]); // ["stag", "buck"]
