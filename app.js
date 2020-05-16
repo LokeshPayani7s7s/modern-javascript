@@ -1,11 +1,15 @@
-let password = "Hell";
+let people = ['Mrs. Robsinson', 'Angie', 'Jolene', 'Maggie May', 'Roxanne'];
+let sortedArray = people.sort();
+console.log("SortedArray",sortedArray); // ["Angie", "Jolene", "Maggie May", "Mrs. Robsinson", "Roxanne"]
 
-if(password.length >= 6){
-  if(password.indexOf(' ') === -1){
-    console.log('Valid Password!');
-  }else{
-    console.log('Password is long enough, but cannot contain space');
-  }
-}else {
-  console.log('Password must be long!');
-}
+const months = ['March', 'Jan', 'Feb', 'Dec'];
+months.sort();
+console.log(months);
+// expected output: Array ["Dec", "Feb", "Jan", "March"]
+
+const array1 = [1, 30, 4, 21, 100000];
+array1.sort();
+console.log(array1);
+// expected output: Array [1, 100000, 21, 30, 4]
+
+
