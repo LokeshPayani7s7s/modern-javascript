@@ -1,11 +1,21 @@
+let animals = [ 'shark', 'salmon','whale','bear', 'lizard','tortoise'];
 
-let letters = ['T','C','A','C','G','L','M'];
-console.log(letters.reverse()) // ["M", "L", "G", "C", "A", "C", "T"]
+// it will display 0 to 3 values
+let swimers = animals.slice(0, 3);
+console.log(swimers); //["shark", "salmon", "whale"]
 
-let numbers = [1,2,3,4,5,6];
-console.log(numbers.reverse()); // [6, 5, 4, 3, 2, 1]
+// it will display 3 to 6
+let mammals = animals.slice(3, 6);
+console.log(mammals); // ["bear", "lizard", "tortoise"]
 
-console.log(letters.join()) // M,L,G,C,A,C,T
-console.log(letters.join('-')) // M-L-G-C-A-C-T
-console.log(letters.reverse().join('.')) // T.C.A.C.G.L.M
-console.log(letters.join('$'))// T$C$A$C$G$L$M
+//let reptiles= animals.slice(4, 6);
+//console.log(reptiles); //["lizard", "tortoise"]
+
+
+// from index 4 onwards it will display
+let reptiles= animals.slice(4);
+console.log(reptiles);//["lizard", "tortoise"]
+
+// it displays a last 4 
+let quadruped= animals.slice(-4);
+console.log(quadruped);//["whale", "bear", "lizard", "tortoise"]
