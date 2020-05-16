@@ -1,26 +1,21 @@
-let ingredients = [
-  'water',
-  'corn starch',
-  'flour',
-  'cheese',
-  'brown sugar',
-  'shrimp',
-  'eel',
-  'butter'
-];
+let animals = [ 'shark', 'salmon','whale','bear', 'lizard','tortoise'];
 
-//includes finds the value
-console.log(ingredients.includes('fish')) // false
-console.log(ingredients.includes('shrimp')) //true
-console.log(ingredients.includes('water', 3)) // false
-console.log(ingredients.includes('water', 0))// true
+// it will display 0 to 3 values
+let swimers = animals.slice(0, 3);
+console.log(swimers); //["shark", "salmon", "whale"]
 
-if(ingredients.includes('flour')){
-  console.log('I AM GLUTEN FREE, I CANNOT EAT THAT');
-}
+// it will display 3 to 6
+let mammals = animals.slice(3, 6);
+console.log(mammals); // ["bear", "lizard", "tortoise"]
 
-//indexOf()
-console.log(ingredients.indexOf('fish')) // -1 false
-console.log(ingredients.indexOf('shrimp')) // 5 true
-console.log(ingredients.indexOf('water', 3)) // -1 false
-console.log(ingredients.indexOf('water', 0))// 0 true
+//let reptiles= animals.slice(4, 6);
+//console.log(reptiles); //["lizard", "tortoise"]
+
+
+// from index 4 onwards it will display
+let reptiles= animals.slice(4);
+console.log(reptiles);//["lizard", "tortoise"]
+
+// it displays a last 4 
+let quadruped= animals.slice(-4);
+console.log(quadruped);//["whale", "bear", "lizard", "tortoise"]
