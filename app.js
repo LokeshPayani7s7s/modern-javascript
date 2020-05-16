@@ -1,21 +1,49 @@
-let animals = [ 'shark', 'salmon','whale','bear', 'lizard','tortoise'];
+let animals = [ 'shark', 'salmon', 'whale', 'bear', 'lizard', 'tortoise' ];
 
-// it will display 0 to 3 values
-let swimers = animals.slice(0, 3);
-console.log(swimers); //["shark", "salmon", "whale"]
+//splice(startIdx, deleteCount, itemsToInsert);
 
-// it will display 3 to 6
-let mammals = animals.slice(3, 6);
-console.log(mammals); // ["bear", "lizard", "tortoise"]
+// =====================
+// INSERTING w/ SPLICE
+// =====================
+// 'at index 1, delete 0 items and insert "octopus"'
+animals.splice(1, 0, 'octopus');
+//["shark", "octopus", "salmon", "whale", "bear", "lizard", "tortoise"]
 
-//let reptiles= animals.slice(4, 6);
-//console.log(reptiles); //["lizard", "tortoise"]
+// =====================
+// DELETING w/ SPLICE
+// =====================
+//'at index 5, delete 2 items'
+animals.splice(5, 2);
+//["shark", "octopus", "salmon", "whale", "bear"]
+
+// =====================
+// REPLACING w/ SPLICE
+// =====================
+//'at index 3, delete 2 items and replace them with "orca" and "grizzly"'
+animals.splice(3, 2, 'orca', 'grizzly');
+// ["shark", "octopus", "salmon", "orca", "grizzly"]
 
 
-// from index 4 onwards it will display
-let reptiles= animals.slice(4);
-console.log(reptiles);//["lizard", "tortoise"]
 
-// it displays a last 4 
-let quadruped= animals.slice(-4);
-console.log(quadruped);//["whale", "bear", "lizard", "tortoise"]
+let animals = ['shark', 'salmon', 'whale', 'bear','lizard', 'tortoise'];
+
+//to add an item
+animals.splice(1,0, 'octopus')
+console.log("animals", animals) //["shark", "octopus", "salmon", "whale", "bear", "lizard", "tortoise"]
+//to delete an item
+animals.splice(3,1)
+console.log("animals", animals) //["shark", "octopus", "salmon", "bear", "lizard", "tortoise"]
+// to update to uppercase
+animals.splice(0,2, 'SHARK','OCTOPUS')
+console.log("animals", animals)
+
+
+let numbers = [10,20,30,40,50,60];
+
+//to add an item
+numbers.splice(1,0, 10,20)
+console.log("numbers", numbers)//[10, 10, 20, 20, 30, 40, 50, 60]
+
+//to delete an item
+numbers.splice(4,2);
+console.log("numbers", numbers)//[10, 10, 20, 20, 50, 60]
