@@ -1,263 +1,349 @@
-// 3 pieces to a for loop:
-// 1 - Variable declaration
-// 2 - The condition
-// 3 - Update the loop variable
+// STEP 1: Define the function:
+function grumpus() {
+	console.log('ugh...you again...');
+	console.log('FOR THE LAST TIME...');
+	console.log('LEAVE ME ALONE!!!');
+}
+// STEP 2: Call the function:
+grumpus();
+grumpus();
+grumpus();
 
-// STEP 1: 'let i = 1' - start i at 1
-// STEP 2: 'i <= 10' - run the loop as long as i <= 10
-// STEP 3: 'i++' - add 1 to i each time through
-for (let i = 1; i <= 10; i++) {
-	console.log('HELLO:', i);
+for (let i = 0; i < 50; i++) {
+	grumpus();
 }
 
-// Counting by 3's:
-for (let i = 1; i <= 10; i += 3) {
-	console.log('HELLO:', i);
+//_________________________________________________________________
+
+// Define our first function
+function rollDie() {
+	// Pick a random number from 1-6
+	// - Math.random() gives us a decimal from 0-1
+	// - We multiply by 6, so now we have a random number between 0 up to 6 (but not including 6).  Something likee 3.490823 or 5.991234
+	// - Then we floor to remove the decimal,  leaving us with a whole number from 0-5
+	//- Lastly we add one, to get a number between 1 and 6
+	let roll = Math.floor(Math.random() * 6) + 1;
+	console.log(`Rolled: ${roll}`);
 }
 
-// Printing first 20 perfect squares:
-for (let num = 1; num <= 20; num++) {
-	console.log(`${num}x${num} = ${num * num}`);
+// We can call functions inside of other functions!
+function throwDice() {
+	rollDie();
+	rollDie();
+	rollDie();
+	rollDie();
+	rollDie();
+	rollDie();
 }
 
-// Counting DOWN from 200 by intervals of 25:
-for (let i = 200; i >= 0; i -= 25) {
-	console.log(i);
-}
-console.log('AFTER THE LOOP!');
+//Call it!
+throwDice();
+//_________________________________________________________________
 
 
-
-// DON'T RUN THIS!
-// for (let i = 1; i !== 20; i += 2) {
-// 	console.log(i);
+// function greet() {
+// 	console.log('Hi');
 // }
 
-// THE ABOVE LOOP NEVER ENDS
-// i starts at 1, and we add 2 each time
-// 1,3,5,7,9,11,13,15,17,19,21,etc.
-// i never hits 20, so the loop condition is always true
-
-// Instead, write it this way:
-for (let i = 1; i <= 20; i += 2) {
-	console.log(i);
+// greet now expects a single argument
+function greet(nickname) {
+	console.log(`Hi, ${nickname}!`);
 }
-
-
-
-// FOR LOOPS & Arrays
-// ======= EXAMPLE 1 ==========
-// Printing each element in an array
-const examScores = [ 98, 77, 84, 91, 57, 66 ];
-
-for (let i = 0; i < examScores.length; i++) {
-	console.log(i, examScores[i]);
-}
-
-// ======= EXAMPLE 2 ==========
-// Same idea, but with a more complex array
-const myStudents = [
-	{
-		firstName : 'Zeus',
-		grade     : 86
-	},
-	{
-		firstName : 'Artemis',
-		grade     : 97
-	},
-	{
-		firstName : 'Hera',
-		grade     : 72
-	},
-	{
-		firstName : 'Apollo',
-		grade     : 90
-	}
-];
-
-for (let i = 0; i < myStudents.length; i++) {
-	let student = myStudents[i];
-	console.log(`${student.firstName} scored ${student.grade}`);
-}
-
-// ======= EXAMPLE 3 ==========
-// Averaging all grades in myStudents array
-let total = 0; //total will hold the sum of all grades
-
-for (let i = 0; i < myStudents.length; i++) {
-	let student = myStudents[i];
-	total += student.grade; //add each grade to total
-}
-console.log(total / myStudents.length); //divide by number of students
-
-// ======= EXAMPLE 4 ==========
-// Reversing a string
-const word = 'stressed';
-
-let reversedWord = ''; //will hold reversed string
-
-//Loop backwards over the string
-for (let i = word.length - 1; i >= 0; i--) {
-	reversedWord += word[i]; //add each char to reversedWord
-}
-
-console.log(reversedWord);
-
-
-
-// Nested for loop
-
-for (let i = 1; i <= 10; i++) {
-	console.log('OUTER LOOP:', i);
-	for (let j = 10; j >= 0; j -= 2) {
-		console.log('  INNER LOOP', j);
-	}
-}
+greet('Sansa');
+greet('Ramsay');
 
 // EXAMPLE 2
-// Sum all elements in our 2048 board
-const gameBoard = [
-	[ 4, 32, 8, 4 ],
-	[ 64, 8, 32, 2 ],
-	[ 8, 32, 16, 4 ],
-	[ 2, 8, 4, 2 ]
-];
-
-let totalScore = 0;
-//outer loop iterates through the rows
-for (let i = 0; i < gameBoard.length; i++) {
-	let row = gameBoard[i];
-	//inner loop iterates over each cell in a given row
-	for (let j = 0; j < row.length; j++) {
-    totalScore += row[j];
-    console.log("totalScore", totalScore)
+function rollDie() {
+	let roll = Math.floor(Math.random() * 6) + 1;
+	console.log(`Rolled: ${roll}`);
+}
+// We can now specify how many dice to roll!
+function throwDice(numRolls) {
+	for (let i = 0; i < numRolls; i++) {
+		rollDie();
 	}
 }
 
+throwDice(2);
+throwDice(6);
 
-//While Loop
-for (let i = 0; i <= 5; i++) {
-	console.log(i);
+//_________________________________________________________________
+
+// Multiple arguments
+function square(num) {
+	console.log(num * num);
 }
 
-//Recreating the above for loop w/ a while loop:
-let j = 0;
-while (j <= 5) {
-	console.log(j);
-	j++;
+function sum(x, y) {
+	console.log(x + y);
 }
 
-// Pick a target number we are trying to guess
-// const target = Math.floor(Math.random() * 10);
-// // Make initial guess
-// let guess = Math.floor(Math.random() * 10);
+function divide(a, b) {
+	console.log(a / b);
+}
 
-// // Continue looping while guess is not the target num
-// while (guess !== target) {
-// 	console.log(`Target: ${target} Guess: ${guess}`);
-// 	// IMPORTANT!!
-// 	// Update the value of guess each time through the loop
-// 	guess = Math.floor(Math.random() * 10);
+//_________________________________________________________________
+
+// No return!
+function add(x, y) {
+	console.log(x + y);
+}
+
+// This version returns the sum of x & y;
+function add(x, y) {
+	return x + y;
+}
+
+// We can capture the return value:
+const total = add(4, 9); //13
+console.log(total);
+//_________________________________________________________________
+
+function square(x) {
+	return x * x;
+	console.log('ALL DONE!'); //this NEVER runs;
+}
+
+// One way of writing this function
+function isPurple(color) {
+	if (color.toLowerCase() === 'purple') {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+// We don't need the else!
+function isPurple(color) {
+	if (color.toLowerCase() === 'purple') {
+		return true;
+	}
+	return false;
+}
+
+// An even shorter way!
+function isPurple(color) {
+	return color.toLowerCase() === 'purple';
+}
+
+function containsPurple(arr) {
+	for (let color of arr) {
+		if (color === 'purple' || color === 'magenta') {
+			return true;
+		}
+	}
+	return false;
+}
+
+//_________________________________________________________________
+
+
+//_________________________________________________________________
+
+//Excercise: 1
+
+// Write a isValidPassword function
+// It accepts 2 arguments: password and username
+// Password must:
+//	- be at least 8 characters
+//  - cannot contain spaces
+//  - cannot contain the username
+// If all requirements are met, return true.
+//Otherwise: false
+
+// isValidPassword('89Fjj1nms', 'dogLuvr');  //true
+// isValidPassword('dogLuvr123!', 'dogLuvr') //false
+// isValidPassword('hello1', 'dogLuvr') //false
+
+function isValidPassword(password, username) {
+	if (password.length < 8) {
+		return false;
+	}
+	if (password.indexOf(' ') !== -1) {
+		return false;
+	}
+	if (password.indexOf(username) !== -1) {
+		return false;
+	}
+	return true;
+}
+
+function isValidPassword(password, username) {
+	if (
+		password.length < 8 ||
+		password.indexOf(' ') !== -1 ||
+		password.indexOf(username) !== -1
+	) {
+		return false;
+	}
+	return true;
+}
+
+function isValidPassword(password, username) {
+	const tooShort = password.length < 8;
+	const hasSpace = password.indexOf(' ') !== -1;
+	const tooSimilar = password.indexOf(username) !== -1;
+	if (tooShort || hasSpace || tooSimilar) return false;
+	return true;
+}
+
+function isValidPassword(password, username) {
+	const tooShort = password.length < 8;
+	const hasSpace = password.indexOf(' ') !== -1;
+	const tooSimilar = password.indexOf(username) !== -1;
+	if (!tooShort && !hasSpace && !tooSimilar) return true;
+	return false;
+}
+
+function isValidPassword(password, username) {
+	const tooShort = password.length < 8;
+	const hasSpace = password.indexOf(' ') !== -1;
+	const tooSimilar = password.indexOf(username) !== -1;
+	return !tooShort && !hasSpace && !tooSimilar;
+}
+
+
+//_________________________________________________________________
+
+// Excercise: 2
+// Write a function to find the average value in an array of numbers
+//avg([0,50]) //25
+//avg([75,76,80,95,100]) //85.2
+
+function avg(arr) {
+	let total = 0;
+	//loop over each num
+	for (let num of arr) {
+		//add them together
+		total += num;
+	}
+	//divide by number of nums
+	return total / arr.length;
+}
+
+
+console.log(avg([0,50]));
+console.log(avg([75,76,80,95,100]));
+//_________________________________________________________________
+
+// Excercise: 3
+// A pangram is a sentence that contains every letter of the alphabet, like:
+//"The quick brown fox jumps over the lazy dog"
+
+// Write a function called isPangram, which checks to see if a given sentence contains every letter of the alphabet.  Make sure you igore string casing!
+
+// isPangram('The five boxing wizards jump quickly') //true
+// isPangram('The five boxing wizards jump quick') //false
+
+
+// Version using indexOf
+// function isPangram(sentence) {
+// 	let lowerCased = sentence.toLowerCase();
+// 	for (let char of 'abcdefghijklmnopqrstuvwxyz') {
+// 		if (lowerCased.indexOf(char) === -1) {
+// 			return false;
+// 		}
+// 	}
+// 	return true;
 // }
-// console.log(`Target: ${target} Guess: ${guess}`);
-// console.log(`CONGRATS YOU WIN!!`);
 
-
-// Using break
-const target = Math.floor(Math.random() * 10);
-let guess;
-//ANOTHER APPROACH TO THE PREVIOUS GUESSING 'GAME'
-while (true) {
-	if (target === guess) break; //Break stops the loop in its tracks
-	console.log(`Target: ${target} Guess: ${guess}`);
-	guess = Math.floor(Math.random() * 10);
-}
-console.log(`Target: ${target} Guess: ${guess}`);
-console.log(`CONGRATS YOU WIN!!`);
-
-
-
-
-// Using for..of loop
-
-let subreddits = [ 'soccer', 'popheads', 'cringe', 'books' ];
-// With a standard for loop
-for (let i = 0; i < subreddits.length; i++) {
-	console.log('normal for loop=>>',subreddits[i]);
-}
-//Much cleaner  with a for...of loop!
-for (let sub of subreddits) {
-	console.log('using for..of loop..',sub);
-}
-//Works with other iterables, like strings!
-for (let char of 'cockadoodledoo') {
-	console.log('using for..of loop..',char.toUpperCase());
-}
-
-
-const magicSquare = [ [ 2, 7, 6 ], [ 9, 5, 1 ], [ 4, 3, 8 ] ];
-
-// Version using a for loop...
-for (let i = 0; i < magicSquare.length; i++) {
-	let row = magicSquare[i];
-	let sum = 0;
-	for (let j = 0; j < row.length; j++) {
-		sum += row[j];
+// Version using string.includes()
+// Nice and clean, but not supported in IE
+function isPangram(sentence) {
+	let lowerCased = sentence.toLowerCase();
+	for (let char of 'abcdefghijklmnopqrstuvwxyz') {
+		if (!lowerCased.includes(char)) {
+			return false;
+		}
 	}
-	console.log(`${row} summed to ${sum}`);
+	return true;
 }
 
-// Much cleaner version using a for...of
-for (let row of magicSquare) {
-	let sum = 0;
-	for (let num of row) {
-		sum += num;
-	}
-	console.log(`${row} summed to ${sum}`);
-}
+console.log(isPangram('The five boxing wizards jump quickly'))// true
+console.log(isPangram('The five boxing wizards jump quickLY'))// true
+console.log(isPangram('The five boxing wizards jump quick')) // false
+//_________________________________________________________________
 
-// EXAMPLE 2
-// If you need the indices, use a traditional for loop!
-const words1 = [ 'mail', 'milk', 'bath', 'black' ];
-const words2 = [ 'box', 'shake', 'tub', 'berry' ];
-
-for (let i = 0; i < words1.length; i++) {
-	//Access index i of both arrays
-	console.log(`${words1[i]}${words2[i]}`);
-}
+// Excerise: 4
+// Write a getCard() function which returns a random playing card object, like:
+// 		{
+// 			value: 'K'
+// 			suit: 'clubs'
+// 		}
+//Pick a random value from:
+//----1,2,3,4,5,6,7,8,9,10,J,Q,K,A
+//Pick a random suit from:
+//----clubs,spades, hearts, diamonds
+//Return both in an object
 
 
+// function getCard(){
+// 	const values = ['1','2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+// 	const valueIndex=Math.floor(Math.random() * values.length);
+// 	// return idx;// it will return index
+// 	const value =  values[valueIndex]; // it will return value
+
+// 	const suits = ['clubs','spades', 'hearts', 'diamonds'];
+// 	const suiteIndex = Math.floor(Math.random()* suits.length)
+// 	const suite = suits[suiteIndex];
+// 	// console.log(value, suite)
+// 	return {value:value, suites:suite};
+// }
+// console.log("Card is", getCard())
 
 
-// Using Objects
-const movieReviews = {
-	Arrival                : 9.5,
-	Alien                  : 9,
-	Amelie                 : 8,
-	'In Bruges'            : 9,
-	Amadeus                : 10,
-	'Kill Bill'            : 8,
-	'Little Miss Sunshine' : 8.5,
-	Coraline               : 7.5
-};
+// function getCard() {
+// 	const values = [
+// 		'1',
+// 		'2',
+// 		'3',
+// 		'4',
+// 		'5',
+// 		'6',
+// 		'7',
+// 		'8',
+// 		'9',
+// 		'10',
+// 		'J',
+// 		'Q',
+// 		'K',
+// 		'A'
+// 	];
+// 	const valIdx = Math.floor(Math.random() * values.length);
+// 	const value = values[valIdx];
 
-// THIS DOES NOT WORK!
-// OBJECTS ARE NOT ITERABLE (can't use a for...of loop)
-// for (let x of movieReviews) {
-// 	console.log(x);
+// 	const suits = [ 'clubs', 'spades', 'hearts', 'diamonds' ];
+// 	const suitIdx = Math.floor(Math.random() * suits.length);
+// 	const suit = suits[suitIdx];
+// 	return { value: value, suit: suit };
 // }
 
-// We CAN iterate over the keys of an object
-for (let movie of Object.keys(movieReviews)) {
-	console.log(`You rated ${movie} - ${movieReviews[movie]}`);
+function pick(arr) {
+	//return random element from arr
+	const idx = Math.floor(Math.random() * arr.length);
+	return arr[idx];
 }
 
-// We can also iterate over the values
-// To calculate the average movie rating:
-const ratings = Object.values(movieReviews);
-let total = 0;
-for (let r of ratings) {
-	total += r;
+function getCard() {
+	const values = [
+		'1',
+		'2',
+		'3',
+		'4',
+		'5',
+		'6',
+		'7',
+		'8',
+		'9',
+		'10',
+		'J',
+		'Q',
+		'K',
+		'A'
+	];
+	const suits = [ 'clubs', 'spades', 'hearts', 'diamonds' ];
+	return { value: pick(values), suit: pick(suits) };
 }
-let avg = total / ratings.length;
-console.log('Average Rating: ', avg);
+
+//_________________________________________________________________
