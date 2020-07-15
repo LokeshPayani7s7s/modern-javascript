@@ -1,228 +1,211 @@
-// STEP 1: Define the function:
-function grumpus() {
-	console.log('ugh...you again...');
-	console.log('FOR THE LAST TIME...');
-	console.log('LEAVE ME ALONE!!!');
-}
-// STEP 2: Call the function:
-grumpus();
-grumpus();
-grumpus();
+// Fuction scope
 
-for (let i = 0; i < 50; i++) {
-	grumpus();
-}
-
-//_________________________________________________________________
-
-// Define our first function
-function rollDie() {
-	// Pick a random number from 1-6
-	// - Math.random() gives us a decimal from 0-1
-	// - We multiply by 6, so now we have a random number between 0 up to 6 (but not including 6).  Something likee 3.490823 or 5.991234
-	// - Then we floor to remove the decimal,  leaving us with a whole number from 0-5
-	//- Lastly we add one, to get a number between 1 and 6
-	let roll = Math.floor(Math.random() * 6) + 1;
-	console.log(`Rolled: ${roll}`);
-}
-
-// We can call functions inside of other functions!
-function throwDice() {
-	rollDie();
-	rollDie();
-	rollDie();
-	rollDie();
-	rollDie();
-	rollDie();
-}
-
-//Call it!
-throwDice();
-//_________________________________________________________________
-
-
-// function greet() {
-// 	console.log('Hi');
+// //These variables are SCOPED to the function
+// function lol() {
+//   let person = 'Tom';
+//   const age = 45;
+//   var color = 'teal';
+//   console.log(age);
 // }
+// // These variables are SCOPED to changeColor()
+// function changeColor() {
+//   let color = 'purple';
+//   const age = 19;
+//   console.log(age);
+// }
+// lol();
+// changeColor();
+// age; //DOES NOT EXIST!
+// color; //DOES NOT EXIST!
+// person; //DOES NOT EXIST!
 
-// greet now expects a single argument
-function greet(nickname) {
-	console.log(`Hi, ${nickname}!`);
+
+// let bird = 'mandarin duck';
+
+// function birdWatch() {
+//   //this bird is scoped to birdWatch()
+//   let bird = 'golden pheasant';
+//   console.log(bird); //"golden pheasant"
+// }
+// birdWatch();
+// console.log(bird); //"mandarin duck"
+
+
+//---------------------------------------------------------
+
+// Block scope
+
+// let & const are BLOCK SCOPED
+if (true) {
+  const animal = 'eel';
+  console.log(animal); //'eel'
 }
-greet('Sansa');
-greet('Ramsay');
+console.log(animal); //NOT DEFINED!
 
-// EXAMPLE 2
-function rollDie() {
-	let roll = Math.floor(Math.random() * 6) + 1;
-	console.log(`Rolled: ${roll}`);
+// VAR IS NOT BLOCK SCOPED
+if (true) {
+  var animal = 'eel';
+  console.log(animal); //'eel'
 }
-// We can now specify how many dice to roll!
-function throwDice(numRolls) {
-	for (let i = 0; i < numRolls; i++) {
-		rollDie();
-	}
+console.log(animal); //'eel'
+
+// let animals = ['grizzly bear', 'panda bear', 'spectacled bear'];
+// var i = 10;
+// for (var i = 0; i < animals.length; i++) {
+//   console.log(i, animals[i])
+// }
+// console.log(i)
+
+
+// let animals = ['grizzly bear', 'panda bear', 'spectacled bear'];
+// let i = 10;
+// for (let i = 0; i < animals.length; i++) {
+//   console.log(i, animals[i])
+// }
+// console.log(i) 
+
+
+function doubleArr(arr) {
+  const result = []; //scoped to the doubleArr function
+  for (let num of arr) {
+    let double = num * 2; //scoped to this loop
+    result.push(double);
+  }
+  return result;
 }
 
-throwDice(2);
-throwDice(6);
+//---------------------------------------------------------
 
-//_________________________________________________________________
+// Lexical Function
 
-// Multiple arguments
-function square(num) {
-	console.log(num * num);
+function outer() {
+  let movie = 'Amadeus';
+
+  function inner() {
+    // let movie = "The Shining";
+
+    function extraInner() {
+      //movie is not defined in this function
+      //but it has access to parent function's variables
+      console.log(movie.toUpperCase())
+    }
+    extraInner();
+  }
+  inner();
 }
 
-function sum(x, y) {
-	console.log(x + y);
-}
+outer(); //'AMADEUS'
 
-function divide(a, b) {
-	console.log(a / b);
-}
+//---------------------------------------------------------
 
-//_________________________________________________________________
+// Function expressions
 
-// No return!
+// Function Statement
 function add(x, y) {
-	console.log(x + y);
+  return x + y;
 }
 
-// This version returns the sum of x & y;
+// Function Expression (Anonymous)
+const sum = function (x, y) {
+  return x + y;
+}
+
+// Function Expression (Named)
+const product = function multiply(x, y) {
+  return x * y;
+}
+//---------------------------------------------------------
+
+// Higher Order function
 function add(x, y) {
-	return x + y;
+  return x + y;
 }
 
-// We can capture the return value:
-const total = add(4, 9); //13
-console.log(total);
-//_________________________________________________________________
-
-function square(x) {
-	return x * x;
-	console.log('ALL DONE!'); //this NEVER runs;
+const subtract = function (x, y) {
+  return x - y;
 }
 
-// One way of writing this function
-function isPurple(color) {
-	if (color.toLowerCase() === 'purple') {
-		return true;
-	}
-	else {
-		return false;
-	}
+function multiply(x, y) {
+  return x * y;
 }
 
-// We don't need the else!
-function isPurple(color) {
-	if (color.toLowerCase() === 'purple') {
-		return true;
-	}
-	return false;
+const divide = function (x, y) {
+  return x / y;
 }
 
-// An even shorter way!
-function isPurple(color) {
-	return color.toLowerCase() === 'purple';
+//We can store functions in an array!
+const operations = [add, subtract, multiply, divide];
+
+//Loop over all the functions in operations
+for (let func of operations) {
+  let result = func(30, 5); //execute func!
+  console.log(result);
 }
 
-function containsPurple(arr) {
-	for (let color of arr) {
-		if (color === 'purple' || color === 'magenta') {
-			return true;
-		}
-	}
-	return false;
+// We can also store functions in objects!
+const thing = {
+  doSomething: multiply
+}
+thing.doSomething(4, 5) //20
+
+
+//---------------------------------------------------------
+
+// Function as arguments
+// This function accepts another function as an argument
+function callThreeTimes(f) {
+  //And calls it 3 times:
+  f();
+  f();
+  f();
 }
 
-//_________________________________________________________________
-
-
-//_________________________________________________________________
-
-//Excercise: 1
-
-// Write a isValidPassword function
-// It accepts 2 arguments: password and username
-// Password must:
-//	- be at least 8 characters
-//  - cannot contain spaces
-//  - cannot contain the username
-// If all requirements are met, return true.
-//Otherwise: false
-
-// isValidPassword('89Fjj1nms', 'dogLuvr');  //true
-// isValidPassword('dogLuvr123!', 'dogLuvr') //false
-// isValidPassword('hello1', 'dogLuvr') //false
-
-function isValidPassword(password, username) {
-	if (password.length < 8) {
-		return false;
-	}
-	if (password.indexOf(' ') !== -1) {
-		return false;
-	}
-	if (password.indexOf(username) !== -1) {
-		return false;
-	}
-	return true;
+function cry() {
+  console.log("BOO HOO I'M SO SAD!");
 }
 
-function isValidPassword(password, username) {
-	if (
-		password.length < 8 ||
-		password.indexOf(' ') !== -1 ||
-		password.indexOf(username) !== -1
-	) {
-		return false;
-	}
-	return true;
+function rage() {
+  console.log("I HATE EVERYTHING!");
 }
 
-function isValidPassword(password, username) {
-	const tooShort = password.length < 8;
-	const hasSpace = password.indexOf(' ') !== -1;
-	const tooSimilar = password.indexOf(username) !== -1;
-	if (tooShort || hasSpace || tooSimilar) return false;
-	return true;
+function repeatNTimes(action, num) {
+  // call action (a function) num number of times
+  for (let i = 0; i < num; i++) {
+    action();
+  }
 }
 
-function isValidPassword(password, username) {
-	const tooShort = password.length < 8;
-	const hasSpace = password.indexOf(' ') !== -1;
-	const tooSimilar = password.indexOf(username) !== -1;
-	if (!tooShort && !hasSpace && !tooSimilar) return true;
-	return false;
+repeatNTimes(rage, 13);
+
+// Accepts 2 functions as arguments
+// Randomly selects 1 to execute
+function pickOne(f1, f2) {
+  let rand = Math.random();
+  if (rand < 0.5) {
+    f1();
+  } else {
+    f2();
+  }
 }
+//---------------------------------------------------------
 
-function isValidPassword(password, username) {
-	const tooShort = password.length < 8;
-	const hasSpace = password.indexOf(' ') !== -1;
-	const tooSimilar = password.indexOf(username) !== -1;
-	return !tooShort && !hasSpace && !tooSimilar;
-}
+//---------------------------------------------------------
 
+//---------------------------------------------------------
 
-//_________________________________________________________________
+//---------------------------------------------------------
 
-// Excercise: 2
-// Write a function to find the average value in an array of numbers
-//avg([0,50]) //25
-//avg([75,76,80,95,100]) //85.2
+//---------------------------------------------------------
 
-function avg(arr) {
-	let total = 0;
-	//loop over each num
-	for (let num of arr) {
-		//add them together
-		total += num;
-	}
-	//divide by number of nums
-	return total / arr.length;
-}
+//---------------------------------------------------------
 
+//---------------------------------------------------------
 
+<<<<<<< HEAD
+//---------------------------------------------------------
+
+//---------------------------------------------------------
+=======
 console.log(avg([0,50]));
 console.log(avg([75,76,80,95,100]));
 //_________________________________________________________________
@@ -347,3 +330,4 @@ function getCard() {
 }
 
 //_________________________________________________________________
+>>>>>>> 285af3d0a2d5b4405a8a89c11a5b829bdbf82947
