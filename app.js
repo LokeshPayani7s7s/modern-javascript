@@ -201,6 +201,133 @@ function pickOne(f1, f2) {
 
 //---------------------------------------------------------
 
+<<<<<<< HEAD
 //---------------------------------------------------------
 
 //---------------------------------------------------------
+=======
+console.log(avg([0,50]));
+console.log(avg([75,76,80,95,100]));
+//_________________________________________________________________
+
+// Excercise: 3
+// A pangram is a sentence that contains every letter of the alphabet, like:
+//"The quick brown fox jumps over the lazy dog"
+
+// Write a function called isPangram, which checks to see if a given sentence contains every letter of the alphabet.  Make sure you igore string casing!
+
+// isPangram('The five boxing wizards jump quickly') //true
+// isPangram('The five boxing wizards jump quick') //false
+
+
+// Version using indexOf
+// function isPangram(sentence) {
+// 	let lowerCased = sentence.toLowerCase();
+// 	for (let char of 'abcdefghijklmnopqrstuvwxyz') {
+// 		if (lowerCased.indexOf(char) === -1) {
+// 			return false;
+// 		}
+// 	}
+// 	return true;
+// }
+
+// Version using string.includes()
+// Nice and clean, but not supported in IE
+function isPangram(sentence) {
+	let lowerCased = sentence.toLowerCase();
+	for (let char of 'abcdefghijklmnopqrstuvwxyz') {
+		if (!lowerCased.includes(char)) {
+			return false;
+		}
+	}
+	return true;
+}
+
+console.log(isPangram('The five boxing wizards jump quickly'))// true
+console.log(isPangram('The five boxing wizards jump quickLY'))// true
+console.log(isPangram('The five boxing wizards jump quick')) // false
+//_________________________________________________________________
+
+// Excerise: 4
+// Write a getCard() function which returns a random playing card object, like:
+// 		{
+// 			value: 'K'
+// 			suit: 'clubs'
+// 		}
+//Pick a random value from:
+//----1,2,3,4,5,6,7,8,9,10,J,Q,K,A
+//Pick a random suit from:
+//----clubs,spades, hearts, diamonds
+//Return both in an object
+
+
+// function getCard(){
+// 	const values = ['1','2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+// 	const valueIndex=Math.floor(Math.random() * values.length);
+// 	// return idx;// it will return index
+// 	const value =  values[valueIndex]; // it will return value
+
+// 	const suits = ['clubs','spades', 'hearts', 'diamonds'];
+// 	const suiteIndex = Math.floor(Math.random()* suits.length)
+// 	const suite = suits[suiteIndex];
+// 	// console.log(value, suite)
+// 	return {value:value, suites:suite};
+// }
+// console.log("Card is", getCard())
+
+
+// function getCard() {
+// 	const values = [
+// 		'1',
+// 		'2',
+// 		'3',
+// 		'4',
+// 		'5',
+// 		'6',
+// 		'7',
+// 		'8',
+// 		'9',
+// 		'10',
+// 		'J',
+// 		'Q',
+// 		'K',
+// 		'A'
+// 	];
+// 	const valIdx = Math.floor(Math.random() * values.length);
+// 	const value = values[valIdx];
+
+// 	const suits = [ 'clubs', 'spades', 'hearts', 'diamonds' ];
+// 	const suitIdx = Math.floor(Math.random() * suits.length);
+// 	const suit = suits[suitIdx];
+// 	return { value: value, suit: suit };
+// }
+
+function pick(arr) {
+	//return random element from arr
+	const idx = Math.floor(Math.random() * arr.length);
+	return arr[idx];
+}
+
+function getCard() {
+	const values = [
+		'1',
+		'2',
+		'3',
+		'4',
+		'5',
+		'6',
+		'7',
+		'8',
+		'9',
+		'10',
+		'J',
+		'Q',
+		'K',
+		'A'
+	];
+	const suits = [ 'clubs', 'spades', 'hearts', 'diamonds' ];
+	return { value: pick(values), suit: pick(suits) };
+}
+
+//_________________________________________________________________
+>>>>>>> 285af3d0a2d5b4405a8a89c11a5b829bdbf82947
